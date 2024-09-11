@@ -1,0 +1,65 @@
+** icpx -fsycl -fsycl-targets=spir64_gen -Xsycl-target-backend "-device pvc -internal_options -ze-opt-large-register-file" cudaTensorCoreGemm.dp.cpp -I ../../../Common/ -I ../../../include/ -DSYCL_EXT_ONEAPI_MATRIX_VERSION=4 -D__DPCT_BINDLESS_IMAGE_HPP__=0 -o pvc**
+icpx: warning: using '-ze-opt-large-register-file' to set GRF mode on PVC hardware is deprecated; use '-ftarget-register-alloc-mode=pvc:large' [-Wdeprecated]
+
+In file included from cudaTensorCoreGemm.dp.cpp:65:
+In file included from ../../../include/dpct/dpct.hpp:24:
+../../../include/dpct/math.hpp:2184:28: error: no member named 'this_work_item' in namespace 'sycl::ext::oneapi'
+ 2184 |         sycl::ext::oneapi::this_work_item::get_sub_group(), matrix);
+      |         ~~~~~~~~~~~~~~~~~~~^
+../../../include/dpct/math.hpp:2193:28: error: no member named 'this_work_item' in namespace 'sycl::ext::oneapi'
+ 2193 |         sycl::ext::oneapi::this_work_item::get_sub_group(), other.get(),
+      |         ~~~~~~~~~~~~~~~~~~~^
+../../../include/dpct/math.hpp:2199:30: error: no member named 'this_work_item' in namespace 'sycl::ext::oneapi'
+ 2199 |           sycl::ext::oneapi::this_work_item::get_sub_group(), other.get(),
+      |           ~~~~~~~~~~~~~~~~~~~^
+../../../include/dpct/math.hpp:2215:52: error: subscripted value is not an array, pointer, or vector
+ 2215 |     decltype(auto) operator[](unsigned I) { return get_wi_data(matrix)[I]; }
+      |                                                    ^~~~~~~~~~~~~~~~~~~ ~
+cudaTensorCoreGemm.dp.cpp:327:20: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::accumulator, 16, 16, 16, float>::matrix_accessor::operator[]' requested here
+  327 |           c[i][j].x[t] *= beta;
+      |                    ^
+In file included from cudaTensorCoreGemm.dp.cpp:65:
+In file included from ../../../include/dpct/dpct.hpp:24:
+../../../include/dpct/math.hpp:2217:14: error: subscripted value is not an array, pointer, or vector
+ 2217 |       return get_wi_data(matrix)[I];
+      |              ^~~~~~~~~~~~~~~~~~~ ~
+cudaTensorCoreGemm.dp.cpp:456:65: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::accumulator, 16, 16, 16, float>::matrix_accessor::operator[]' requested here
+  456 |         for (int t = 0; t < c[i][j].num_elements; t++) c[i][j].x[t] *= alpha;
+      |                                                                 ^
+cudaTensorCoreGemm.dp.cpp:777:15: error: no matching function for call to 'compute_gemm'
+  777 |               compute_gemm(A, B, C, D, alpha, beta, item_ct1,
+      |               ^~~~~~~~~~~~
+cudaTensorCoreGemm.dp.cpp:183:5: note: expanded from macro 'checkKernelErrors'
+  183 |     expr;                                                                      \
+      |     ^~~~
+cudaTensorCoreGemm.dp.cpp:217:6: note: candidate function not viable: no known conversion from 'const sycl::local_accessor<uint8_t, 2>' (aka 'const local_accessor<unsigned char, 2>') to 'uint8_t *' (aka 'unsigned char *') for 8th argument
+  217 | void compute_gemm(const sycl::half *A, const sycl::half *B, const float *C,
+      |      ^
+  218 |                   float *D, float alpha, float beta,
+  219 |                   const sycl::nd_item<3> &item_ct1, uint8_t *dpct_local) {
+      |                                                     ~~~~~~~~~~~~~~~~~~~
+In file included from cudaTensorCoreGemm.dp.cpp:65:
+In file included from ../../../include/dpct/dpct.hpp:24:
+../../../include/dpct/math.hpp:2189:62: error: member reference base type 'void' is not a structure or union
+ 2189 |       : matrix(), x(matrix), num_elements(get_wi_data(matrix).length()) {}
+      |                                           ~~~~~~~~~~~~~~~~~~~^~~~~~~
+cudaTensorCoreGemm.dp.cpp:290:9: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::accumulator, 16, 16, 16, float>::joint_matrix' requested here
+  290 |         c[WARP_COL_TILES][WARP_ROW_TILES];
+      |         ^
+In file included from cudaTensorCoreGemm.dp.cpp:65:
+In file included from ../../../include/dpct/dpct.hpp:24:
+../../../include/dpct/math.hpp:2189:62: error: member reference base type 'void' is not a structure or union
+ 2189 |       : matrix(), x(matrix), num_elements(get_wi_data(matrix).length()) {}
+      |                                           ~~~~~~~~~~~~~~~~~~~^~~~~~~
+cudaTensorCoreGemm.dp.cpp:392:13: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::a, 16, 16, 16, sycl::detail::half_impl::half, dpct::experimental::matrix::row_major>::joint_matrix' requested here
+  392 |             a[WARP_COL_TILES];
+      |             ^
+In file included from cudaTensorCoreGemm.dp.cpp:65:
+In file included from ../../../include/dpct/dpct.hpp:24:
+../../../include/dpct/math.hpp:2189:62: error: member reference base type 'void' is not a structure or union
+ 2189 |       : matrix(), x(matrix), num_elements(get_wi_data(matrix).length()) {}
+      |                                           ~~~~~~~~~~~~~~~~~~~^~~~~~~
+cudaTensorCoreGemm.dp.cpp:396:13: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::b, 16, 16, 16, sycl::detail::half_impl::half, dpct::experimental::matrix::col_major>::joint_matrix' requested here
+  396 |             b[WARP_ROW_TILES];
+      |             ^
+9 errors generated.
