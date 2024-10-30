@@ -1,0 +1,107 @@
+icpx -fsycl -fsycl-targets=nvidia_gpu_sm_90 -I ../../../include/ -I ../../../Common/ cuda_version.cpp
+In file included from cuda_version.cpp:64:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/sycl.hpp:120:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix.hpp:19:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-unified.hpp:25:
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:466:54: error: no member named 'spvm' in 'sycl::ext::oneapi::experimental::matrix::joint_matrix<sycl::sub_group, float, sycl::ext::oneapi::experimental::matrix::use::accumulator, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::dynamic>'
+  466 |     return __spirv_JointMatrixWorkItemLengthINTEL(jm.spvm);
+      |                                                   ~~ ^
+../../../include/dpct/math.hpp:2189:63: note: in instantiation of member function 'sycl::ext::oneapi::detail::wi_data<sycl::sub_group, float, sycl::ext::oneapi::experimental::matrix::use::accumulator, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::dynamic>::length' requested here
+ 2189 |       : matrix(), x(matrix), num_elements(get_wi_data(matrix).length()) {}
+      |                                                               ^
+cuda_version.cpp:290:9: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::accumulator, 16, 16, 16, float>::joint_matrix' requested here
+  290 |         c[WARP_COL_TILES][WARP_ROW_TILES];
+      |         ^
+In file included from cuda_version.cpp:64:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/sycl.hpp:120:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix.hpp:19:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-unified.hpp:25:
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:229:3: error: no member named 'spvm' in 'sycl::ext::oneapi::experimental::matrix::joint_matrix<sycl::sub_group, float, sycl::ext::oneapi::experimental::matrix::use::accumulator, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::dynamic>'
+  229 |   OP(*)
+      |   ^~~~~
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:207:7: note: expanded from macro 'OP'
+  207 |     M.spvm = __spirv_VectorInsertDynamic(                                      \
+      |     ~ ^
+cuda_version.cpp:327:24: note: in instantiation of function template specialization 'sycl::ext::oneapi::detail::wi_element<float, 16, 16, sycl::ext::oneapi::experimental::matrix::use::accumulator, sycl::ext::oneapi::experimental::matrix::layout::dynamic>::operator*=<float>' requested here
+  327 |           c[i][j].x[t] *= beta;
+      |                        ^
+In file included from cuda_version.cpp:64:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/sycl.hpp:120:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix.hpp:19:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-unified.hpp:25:
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:466:54: error: no member named 'spvm' in 'sycl::ext::oneapi::experimental::matrix::joint_matrix<sycl::sub_group, sycl::detail::half_impl::half, sycl::ext::oneapi::experimental::matrix::use::a, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::row_major>'
+  466 |     return __spirv_JointMatrixWorkItemLengthINTEL(jm.spvm);
+      |                                                   ~~ ^
+../../../include/dpct/math.hpp:2189:63: note: in instantiation of member function 'sycl::ext::oneapi::detail::wi_data<sycl::sub_group, sycl::detail::half_impl::half, sycl::ext::oneapi::experimental::matrix::use::a, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::row_major>::length' requested here
+ 2189 |       : matrix(), x(matrix), num_elements(get_wi_data(matrix).length()) {}
+      |                                                               ^
+cuda_version.cpp:392:13: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::a, 16, 16, 16, sycl::detail::half_impl::half, dpct::experimental::matrix::row_major>::joint_matrix' requested here
+  392 |             a[WARP_COL_TILES];
+      |             ^
+In file included from cuda_version.cpp:64:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/sycl.hpp:120:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix.hpp:19:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-unified.hpp:25:
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:466:54: error: no member named 'spvm' in 'sycl::ext::oneapi::experimental::matrix::joint_matrix<sycl::sub_group, sycl::detail::half_impl::half, sycl::ext::oneapi::experimental::matrix::use::b, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::col_major>'
+  466 |     return __spirv_JointMatrixWorkItemLengthINTEL(jm.spvm);
+      |                                                   ~~ ^
+../../../include/dpct/math.hpp:2189:63: note: in instantiation of member function 'sycl::ext::oneapi::detail::wi_data<sycl::sub_group, sycl::detail::half_impl::half, sycl::ext::oneapi::experimental::matrix::use::b, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::col_major>::length' requested here
+ 2189 |       : matrix(), x(matrix), num_elements(get_wi_data(matrix).length()) {}
+      |                                                               ^
+cuda_version.cpp:396:13: note: in instantiation of member function 'dpct::experimental::matrix::joint_matrix<dpct::experimental::matrix::b, 16, 16, 16, sycl::detail::half_impl::half, dpct::experimental::matrix::col_major>::joint_matrix' requested here
+  396 |             b[WARP_ROW_TILES];
+      |             ^
+In file included from cuda_version.cpp:64:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/sycl.hpp:120:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix.hpp:19:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-unified.hpp:25:
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:150:72: error: no member named 'spvm' in 'sycl::ext::oneapi::experimental::matrix::joint_matrix<sycl::sub_group, float, sycl::ext::oneapi::experimental::matrix::use::accumulator, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::dynamic>'
+  150 |                                      spv_scope_traits<Group>::value>(M.spvm,
+      |                                                                      ~ ^
+cuda_version.cpp:596:29: note: in instantiation of member function 'sycl::ext::oneapi::detail::wi_element<float, 16, 16, sycl::ext::oneapi::experimental::matrix::use::accumulator, sycl::ext::oneapi::experimental::matrix::layout::dynamic>::operator float' requested here
+  596 |       c_frag.x[i] = alpha * acc_frag.x[i] + beta * c_frag.x[i];
+      |                             ^
+In file included from cuda_version.cpp:64:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/sycl.hpp:120:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix.hpp:19:
+In file included from /nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-unified.hpp:25:
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:175:7: error: no member named 'spvm' in 'sycl::ext::oneapi::experimental::matrix::joint_matrix<sycl::sub_group, float, sycl::ext::oneapi::experimental::matrix::use::accumulator, 16, 16, sycl::ext::oneapi::experimental::matrix::layout::dynamic>'
+  175 |     M.spvm = __spirv_VectorInsertDynamic(
+      |     ~ ^
+cuda_version.cpp:596:19: note: in instantiation of function template specialization 'sycl::ext::oneapi::detail::wi_element<float, 16, 16, sycl::ext::oneapi::experimental::matrix::use::accumulator, sycl::ext::oneapi::experimental::matrix::layout::dynamic>::operator=<float>' requested here
+  596 |       c_frag.x[i] = alpha * acc_frag.x[i] + beta * c_frag.x[i];
+      |                   ^
+cuda_version.cpp:327:24: error: SYCL kernel cannot call an undefined function without SYCL_EXTERNAL attribute
+  327 |           c[i][j].x[t] *= beta;
+      |                        ^
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:229:3: note: 'operator*=<float>' declared here
+  229 |   OP(*)
+      |   ^
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:206:38: note: expanded from macro 'OP'
+  206 |   template <typename T2> wi_element &operator op##=(const T2 & rhs) {          \
+      |                                      ^
+cuda_version.cpp:217:6: note: called by 'compute_gemm'
+  217 | void compute_gemm(const sycl::half *A, const sycl::half *B, const float *C,
+      |      ^
+cuda_version.cpp:456:69: error: SYCL kernel cannot call an undefined function without SYCL_EXTERNAL attribute
+  456 |         for (int t = 0; t < c[i][j].num_elements; t++) c[i][j].x[t] *= alpha;
+      |                                                                     ^
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:229:3: note: 'operator*=<float>' declared here
+  229 |   OP(*)
+      |   ^
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:206:38: note: expanded from macro 'OP'
+  206 |   template <typename T2> wi_element &operator op##=(const T2 & rhs) {          \
+      |                                      ^
+cuda_version.cpp:217:6: note: called by 'compute_gemm'
+  217 | void compute_gemm(const sycl::half *A, const sycl::half *B, const float *C,
+      |      ^
+cuda_version.cpp:596:19: error: SYCL kernel cannot call an undefined function without SYCL_EXTERNAL attribute
+  596 |       c_frag.x[i] = alpha * acc_frag.x[i] + beta * c_frag.x[i];
+      |                   ^
+/nfs/site/home/vbaddex/intel/oneapi/compiler/2025.0/bin/compiler/../../include/sycl/ext/oneapi/matrix/matrix-intel.hpp:173:38: note: 'operator=<float>' declared here
+  173 |   template <typename T2> wi_element &operator=(const T2 &rhs) {
+      |                                      ^
+cuda_version.cpp:518:6: note: called by 'simple_wmma_gemm'
+  518 | void simple_wmma_gemm(sycl::half *a, sycl::half *b, float *c, float *d,
+      |      ^
+9 errors generated.
