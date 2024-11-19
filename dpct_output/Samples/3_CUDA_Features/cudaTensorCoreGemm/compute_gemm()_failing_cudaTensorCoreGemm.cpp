@@ -582,13 +582,13 @@ int main(int argc, char **argv) {
         int count = 0;
   printf("Initializing...\n");
 
-//  int dev = findCudaDevice(argc, (const char **)argv);
+  int dev = findCudaDevice(argc, (const char **)argv);
 std::cout << "\nRunning on " << dpct::get_default_queue().get_device().get_info<sycl::info::device::name>()
         << "\n";
 
   dpct::device_info deviceProp;
-  //checkCudaErrors(
-   //   DPCT_CHECK_ERROR(dpct::get_device(dev).get_device_info(deviceProp)));
+  checkCudaErrors(
+      DPCT_CHECK_ERROR(dpct::get_device(dev).get_device_info(deviceProp)));
 
   // Tensor cores require a GPU of Volta (SM7X) architecture or higher.
   /*
