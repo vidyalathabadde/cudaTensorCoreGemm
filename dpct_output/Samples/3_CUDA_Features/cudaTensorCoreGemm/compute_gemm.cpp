@@ -748,7 +748,7 @@ std::cout << "\nRunning on " << dpct::get_default_queue().get_device().get_info<
                                sizeof(float) * M_GLOBAL * N_GLOBAL,
                                cudaMemcpyDeviceToHost));*/
      (dpct::get_default_queue()
-             .memcpy(result_hD, C, sizeof(float) * M_GLOBAL * N_GLOBAL)
+             .memcpy(result_hD, D, sizeof(float) * M_GLOBAL * N_GLOBAL)
              .wait());
 #endif
   } else {
