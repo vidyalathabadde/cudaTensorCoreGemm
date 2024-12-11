@@ -1,0 +1,30 @@
+ icpx -fsycl -fsycl-targets=intel_gpu_pvc -I ../../../include/ -I ../../../Common/ -DREST -DREST1 compute_dk.cpp
+Compilation from IR - skipping loading of FCL
+
+warning: Adding 32 occurrences of additional control flow due to presence of generic address space operations
+in function _ZTSZZZ4mainENKUlvE11_clEvENKUlRN4sycl3_V17handlerEE_clES3_EUlNS1_7nd_itemILi3EEEE_ (Enable PrintVerboseGenericControlFlowLog flag to acquire detailed log. Requires debuginfo!)
+
+Build succeeded.
+Compilation from IR - skipping loading of FCL
+Build succeeded.
+vbaddex@sdp7762:~/vidya/cuda-samples/Samples/3_CUDA_Features/cudaTensorCoreGemm/migrate/cudaTensorCoreGemm/dpct_output/Samples/3_CUDA_Features/cudaTensorCoreGemm$ ./a.out
+Initializing...
+MapSMtoCores for SM 12.60 is undefined.  Default to use 128 Cores/SM
+MapSMtoCores for SM 12.60 is undefined.  Default to use 128 Cores/SM
+MapSMtoCores for SM 1.2 is undefined.  Default to use 128 Cores/SM
+MapSMtoArchName for SM 12.60 is undefined.  Default to use Hopper
+GPU Device 0: "Hopper" with compute capability 12.60
+
+
+Running on Intel(R) Data Center GPU Max 1550
+M: 512 (8 x 64)
+N: 512 (16 x 32)
+K: 512 (16 x 32)
+Preparing data for GPU...
+Required shared memory size: 32 Kb
+Computing... using high performance kernel compute_gemm
+FATAL: Unexpected page fault from GPU at 0xff00ffffffff0000, ctx_id: 1 (CCS) type: 0 (NotPresent), level: 0 (PTE), access: 0 (Read), banned: 0, aborting.
+FATAL: Unexpected page fault from GPU at 0xff00ffffffff0000, ctx_id: 1 (CCS) type: 0 (NotPresent), level: 0 (PTE), access: 0 (Read), banned: 0, aborting.
+Abort was called at 288 line in file:
+./shared/source/os_interface/linux/drm_neo.cpp
+Aborted (core dumped)
